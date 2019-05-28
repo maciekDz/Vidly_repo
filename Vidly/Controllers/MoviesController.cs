@@ -10,6 +10,15 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        public List<Movie> GetMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie{ MovieId=1,MovieName="LOTR"},
+                new Movie{ MovieId=2,MovieName="GOT"}
+            };
+        }
+
         // GET: Movies
         public ActionResult Random()
         {
@@ -39,12 +48,19 @@ namespace Vidly.Controllers
 
         public ActionResult Index(int? pageIndex,string sortBy)
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (String.IsNullOrEmpty(sortBy))
-                sortBy = "Name";
+            var movies = GetMovies();
+            return View(movies);
+        }
 
-            return Content(String.Format("pageIndex={0}&sortBy={1}",pageIndex,sortBy));
+        public ActionResult Details(int id)
+        {
+            var movies = GetMovies();
+            var movie = movies.Where(m => m.MovieId== id).FirstOrDefault();
+
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
 
         [Route("movies/released/{year:regex(\\d{4})}/{month:regex(\\d{2}):range(1,12)}")]

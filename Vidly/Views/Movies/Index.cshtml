@@ -1,23 +1,22 @@
-﻿@model IEnumerable<Vidly.Models.Customer>
+﻿@model IEnumerable<Vidly.Models.Movie>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Customers</h2>
+<h2>Movies</h2>
 
 @if (!Model.Any())
 {
-    <p>We dont have any customers yet.</p>
+    <p>We dont have any movies yet.</p>
 }
 else
 {
-
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerName)
+                @Html.DisplayNameFor(model => model.MovieName)
             </th>
             <th></th>
         </tr>
@@ -26,7 +25,7 @@ else
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.CustomerName, "Details", new { id = item.CustomerId })
+                    @Html.ActionLink(item.MovieName, "Details", new { id = item.MovieId })
                 </td>
 
             </tr>
@@ -34,3 +33,5 @@ else
 
     </table>
 }
+
+

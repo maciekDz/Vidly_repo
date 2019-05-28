@@ -10,7 +10,7 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
-        public List<Customer> Customers()
+        public List<Customer> GetCustomers()
         {
             return new List<Customer>
             {
@@ -25,14 +25,18 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = Customers();
+            var customers = GetCustomers();
+            
             return View(customers);
         }
 
         public ActionResult Details(int id)
         {
-            var customers = Customers();
+            var customers = GetCustomers();
             var cust = customers.Where(c => c.CustomerId == id).FirstOrDefault();
+
+            if (cust == null)
+                return HttpNotFound();
 
             return View(cust);
         }
