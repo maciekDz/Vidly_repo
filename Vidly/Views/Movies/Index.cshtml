@@ -18,7 +18,9 @@ else
             <th>
                 @Html.DisplayNameFor(model => model.MovieName)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre.GenreName)
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -27,7 +29,9 @@ else
                 <td>
                     @Html.ActionLink(item.MovieName, "Details", new { id = item.MovieId })
                 </td>
-
+                <td>
+                    @Html.DisplayFor(model=>item.Genre.GenreName)
+                </td>
             </tr>
         }
 

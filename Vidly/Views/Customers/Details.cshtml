@@ -8,9 +8,17 @@
 <h2>Customer</h2>
 
 <div>
-    
     <hr />
     <h2>@Html.DisplayFor(model => model.CustomerName)</h2>
+    <ul>
+        <li>@Html.DisplayNameFor(model => model.MembershipType.MembershipTypeName): @Model.MembershipType.MembershipTypeName </li>
+
+        @if (Model.BirthDate.HasValue)
+        {
+            <li>@Html.DisplayNameFor(model => model.BirthDate): @Html.DisplayFor(model=>model.BirthDate)</li>
+        }
+    </ul>
+
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")

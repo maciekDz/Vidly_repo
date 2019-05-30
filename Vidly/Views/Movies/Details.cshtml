@@ -11,6 +11,20 @@
 
     <hr />
     <h2>@Html.DisplayFor(model => model.MovieName)</h2>
+    <ul>
+        <li>
+            @Html.DisplayNameFor(model => model.Genre.GenreName): @Html.DisplayFor(model=> model.Genre.GenreName)
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.RelaseDate): @Html.DisplayFor(model => model.RelaseDate)
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.DateAdded): @Html.DisplayFor(model => model.DateAdded)
+        </li>
+        <li>
+            @Html.DisplayNameFor(model => model.NumberInStock): @Html.DisplayFor(model => model.NumberInStock)
+        </li>
+    </ul>
 </div>
 <p>
     @Html.ActionLink("Back to List", "Index")
