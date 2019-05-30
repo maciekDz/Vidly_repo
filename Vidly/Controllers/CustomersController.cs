@@ -25,7 +25,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers.Include(c=>c.MembershipType).ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);
         }
 
@@ -39,7 +39,60 @@ namespace Vidly.Controllers
             return View(customer);
         }
 
-       
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var vm = new CustomerFormViewModel
+            {
+                Customer = new Customer(),
+                MembershipTypes = membershipTypes
+            };
+            return View("CustomerForm", vm);
+        }
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                if (customer.CustomerId == 0)
+                {
+                    _context.Customers.Add(customer);
+                }
+                else
+                {
+                    var customerInDb = _context.Customers.Where(c => c.CustomerId == customer.CustomerId).Single();
+                    customerInDb.CustomerName = customer.CustomerName;
+                    customerInDb.BirthDate = customer.BirthDate;
+                    customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                    customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index", "Customers");
+            }
+            else
+            {
+                return View("CustomerForm");
+            }
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var vm = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = membershipTypes
+            };
+
+            if (customer == null)
+                return HttpNotFound();
+
+            return View("CustomerForm", vm);
+        }
+
 
     }
 }

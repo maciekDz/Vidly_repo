@@ -19,9 +19,9 @@ namespace Vidly
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo("en-US");
+            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo("en-US"); //set culture to english mainly for dates
         }
-        protected void Application_BeginRequest(Object sender, EventArgs e)
+        protected void Application_BeginRequest(Object sender, EventArgs e) //set global date format
         {
             CultureInfo newCulture = (CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
             newCulture.DateTimeFormat.ShortDatePattern = "dddd, MMMM dd, yyyy";
