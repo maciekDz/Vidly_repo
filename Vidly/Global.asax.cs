@@ -19,7 +19,7 @@ namespace Vidly
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo("en-US"); //set culture to english mainly for dates
+            /*System.Globalization.CultureInfo.DefaultThreadCurrentCulture = new System.Globalization.CultureInfo("en-US");*/ //set culture to english mainly for dates
         }
         protected void Application_BeginRequest(Object sender, EventArgs e) //set global date format
         {

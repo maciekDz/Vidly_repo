@@ -16,7 +16,7 @@ else
 
 @using (Html.BeginForm("Save", "Movies"))
 {
-
+    
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.MovieName)
         @Html.TextBoxFor(m => m.Movie.MovieName, new { @class = "form-control" })
