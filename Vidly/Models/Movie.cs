@@ -14,19 +14,19 @@ namespace Vidly.Models
         public string MovieName { get; set; }
 
         public Genre Genre { get; set; }
-
+        [Display(Name = "Genre")]
         public int GenreId { get; set; }
 
         [Display(Name = "Relase Date")]
         [DataType(DataType.Date)] //format set globaly in Global.asax
-        public DateTime RelaseDate { get; set; }
+        public DateTime? RelaseDate { get; set; }
 
         [Display(Name = "Date Added")]
         [DataType(DataType.Date)] //format set globaly in Global.asax
-        public DateTime DateAdded { get; set; }
+        public DateTime? DateAdded { get; set; }
 
         [Display(Name = "Number in Stock")]
-        public int NumberInStock { get; set; }
+        public int? NumberInStock { get; set; }
 
     }
 }
