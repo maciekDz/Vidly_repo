@@ -235,6 +235,18 @@
     <Compile Include="Migrations\201906011151522_NullableNumInStockInMoviesModel.Designer.cs">
       <DependentUpon>201906011151522_NullableNumInStockInMoviesModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906011958332_ExpandMovieModel.cs" />
+    <Compile Include="Migrations\201906011958332_ExpandMovieModel.Designer.cs">
+      <DependentUpon>201906011958332_ExpandMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906012001062_NumberInStockValidationTes.cs" />
+    <Compile Include="Migrations\201906012001062_NumberInStockValidationTes.Designer.cs">
+      <DependentUpon>201906012001062_NumberInStockValidationTes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021542165_NumberInStockRequiredAgain.cs" />
+    <Compile Include="Migrations\201906021542165_NumberInStockRequiredAgain.Designer.cs">
+      <DependentUpon>201906021542165_NumberInStockRequiredAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -376,6 +388,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906011151522_NullableNumInStockInMoviesModel.resx">
       <DependentUpon>201906011151522_NullableNumInStockInMoviesModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011958332_ExpandMovieModel.resx">
+      <DependentUpon>201906011958332_ExpandMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906012001062_NumberInStockValidationTes.resx">
+      <DependentUpon>201906012001062_NumberInStockValidationTes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021542165_NumberInStockRequiredAgain.resx">
+      <DependentUpon>201906021542165_NumberInStockRequiredAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

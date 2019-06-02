@@ -10,6 +10,7 @@ namespace Vidly.Models
     {
         public int MovieId { get; set; }
 
+        [Required]
         [Display(Name = "Movie Name")]
         public string MovieName { get; set; }
 
@@ -19,16 +20,20 @@ namespace Vidly.Models
         [Display(Name = "Genre")]
         public int GenreId { get; set; }
 
+        [Required]
         [Display(Name = "Relase Date")]
         [DataType(DataType.Date)] //format set globaly in Global.asax
-        public DateTime? RelaseDate { get; set; }
+        public DateTime RelaseDate { get; set; }
 
+        [Required]
         [Display(Name = "Date Added")]
         [DataType(DataType.Date)] //format set globaly in Global.asax
-        public DateTime? DateAdded { get; set; }
+        public DateTime DateAdded { get; set; }
 
+        [Required]
         [Display(Name = "Number in Stock")]
-        public int? NumberInStock { get; set; }
+        [Range(1,20)]
+        public int NumberInStock { get; set; }
 
     }
 }
