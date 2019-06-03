@@ -24,8 +24,7 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
-            return View(movies);
+            return View();
         }
 
         public ActionResult Details(int id)
@@ -43,7 +42,6 @@ namespace Vidly.Controllers
             var genres = _context.Genres.ToList();
             var vm = new MovieViewModel
             {
-                NumberInStock = _context.Movies.Max(n => n.NumberInStock) + 1,
                 Genres = genres
             };
             return View("MovieForm", vm);

@@ -15,6 +15,7 @@ namespace Vidly.Dtos
 
         [Required]
         public int GenreId { get; set; }
+        public GenreDto Genre { get; set; }
 
         [Required]
         [DataType(DataType.Date)] //format set globaly in Global.asax
